@@ -1,4 +1,4 @@
-name: Entrega para EC2
+name: entrega para EC2
 
 on:
   workflow_call:
