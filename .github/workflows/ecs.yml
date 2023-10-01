@@ -39,4 +39,4 @@ jobs:
         task-definition: ${{ steps.task-def.outputs.task-definition }}
         service: Servico_API_Go
         cluster: API-Go
-        wait-for-service-stability: true    
+        wait-for-service-stability: true
