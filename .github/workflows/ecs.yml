@@ -48,5 +48,14 @@ jobs:
     - name: Request
       continue-on-error: true
       run: sleep 60s ; wget lb-srv-api-go-324106769.sa-east-1.elb.amazonaws.com:8000/name
+   
+    - name: Deploy Amazon ECS task definition
+      uses: aws-actions/amazon-ecs-deploy-task-definition@v1
+      with:
+        task-definition: task-definition.json.old
+        service: Servico_API_Go
+        cluster: API-Go
+        wait-for-service-stability: true
+      
       
       
