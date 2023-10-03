@@ -1,4 +1,4 @@
-name: Entrega para ECS
+name: EKS Deploy
 
 on:
   workflow_call:
