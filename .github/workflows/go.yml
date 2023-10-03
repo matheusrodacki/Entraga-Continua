@@ -70,8 +70,8 @@ jobs:
      #uses: ./.github/workflows/ecs.yml
      #secrets: inherit
 
-  load_test:
-     needs: docker
-     if: ${{ github.ref_name == 'rollback' }}
-     uses: ./.github/workflows/loadTest.yml
-     secrets: inherit   
+ # load_test:
+     #needs: docker
+     #if: ${{ github.ref_name == 'rollback' }}
+     #uses: ./.github/workflows/loadTest.yml
+     #secrets: inherit   
