@@ -75,9 +75,3 @@ jobs:
      if: ${{ github.ref_name == 'rollback' }}
      uses: ./.github/workflows/loadTest.yml
      secrets: inherit   
-
-  destroy:
-     needs: load_test
-     if: ${{ failure() }}
-     uses: ./.github/workflows/destroy.yml
-     secrets: inherit     
