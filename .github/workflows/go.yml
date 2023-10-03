@@ -72,6 +72,6 @@ jobs:
 
   load_test:
      needs: docker
-     if: ${{ github.ref_name == 'rollback' || "limpeza" }}
+     if: ${{ github.ref_name == 'rollback' || github.ref_name == 'limpeza' }}
      uses: ./.github/workflows/loadTest.yml
      secrets: inherit   
