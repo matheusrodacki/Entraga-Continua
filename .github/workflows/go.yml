@@ -77,7 +77,7 @@ jobs:
      secrets: inherit   
 
   destroy:
-     needs: docker
+     needs: load_test
      if: ${{ failure() }}
      uses: ./.github/workflows/destroy.yml
      secrets: inherit     
