@@ -49,7 +49,7 @@ jobs:
       continue-on-error: true
       run: echo "REQUEST=0" >> $GITHUB_ENV; sleep 60s ; wget lb-srv-api-go-324106769.sa-east-1.elb.amazonaws.com:8000/name || "REQUEST=1" >> $GITHUB_ENV
    
-    - name: Roll back task definition in casa of fail deploy
+    - name: Roll back task definition in case of fail deploy
       if: ${{ env.REQUEST != 0 }}
       uses: aws-actions/amazon-ecs-deploy-task-definition@v1
       with:
