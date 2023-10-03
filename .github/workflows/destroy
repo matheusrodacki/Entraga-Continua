@@ -1,0 +1,27 @@
+name: TerraForm Destroy
+
+on:
+  workflow_call:
+
+jobs:
+
+  ecs:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: sa-east-1
+    
+    - run: git clone https://github.com/matheusrodacki/Infra_CI.git
+
+    - name: HashiCorp - Setup Terraform
+      uses: hashicorp/setup-terraform@v2.0.3
+      
+    - run: terraform -chdir=Infra_CI/env/Homolog init
+    
+    - run: terraform -chdir=Infra_CI/env/Homolog destroy -auto-approve
